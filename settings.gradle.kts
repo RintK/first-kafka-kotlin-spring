@@ -1,1 +1,1 @@
-rootProject.name = "first-kafka-kotlin"
+rootProject.name = "first-kafka-kotlin-spring"
