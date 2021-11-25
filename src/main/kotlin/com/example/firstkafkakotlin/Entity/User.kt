@@ -11,4 +11,8 @@ class User(
     var age: Int,
     var asset: Int,
     var country: String,
-)
+) {
+    override fun toString(): String {
+        return "User(id=$id, name='$name', age=$age, asset=$asset, country='$country')"
+    }
+}
