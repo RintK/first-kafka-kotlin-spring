@@ -1,5 +1,6 @@
 package com.example.firstkafkakotlin.repository
 
+import com.example.firstkafkakotlin.Entity.Item
 import com.example.firstkafkakotlin.Entity.OrderItem
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,12 +14,16 @@ class OrderItemRepositoryTest {
     lateinit var orderItemRepository: OrderItemRepository
     @Autowired
     lateinit var userRepository: UserRepository
+    @Autowired
+    lateinit var itemRepository: ItemRepository
 
     @Test
     fun saveOrderItemTest() {
         val user = userRepository.getById(2)
-        val testOrderItem = OrderItem(null, user, "Shield")
-        orderItemRepository.save(testOrderItem)
+        val item = itemRepository.save(Item(null, "Shield", "Def"))
+        val testOrderItem = OrderItem(null, user, item)
+        val savedOrderItem = orderItemRepository.save(testOrderItem)
+        println(savedOrderItem)
     }
 
     @Test
